@@ -1,29 +1,17 @@
-<h1>Hello, Rails!</h1>
 <% if user_signed_in? %>
+<h1><%= t('hello')%>,<%= current_user.name %></h1>
   Logged in as <strong><%= current_user.email %></strong>.
   <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
  <%= link_to "Edit", edit_user_registration_path, :class => 'navbar-link'  %>
- <h1>Listing users</h1>
-
-<table>
-  <tr>
-    <td><th>Email</th></td>
-    <th style="padding-left :2vh">Created at</th>
-    <th style="padding-left :2vh">Confirmed at</th>
-    <th style="padding-left :2vh">Name</th>
-     <th colspan="3"></th>
-  </tr>
- 
+ <%= link_to "My account", user_path(current_user)%>
+ <h1>Campaigns</h1>
+<td>
+  <p>By author:</p>
   <% @users.each do |user| %>
-    <tr>
-      <td><%= check_box_tag "users[]", user.id,false, class: 'selectable',:style => "width: 25px; height: 25px;" %></td>
-      <td><%= user.email %></td>
-      <td style="padding-left :2vh"><%= user.created_at %></td>
-      <td style="padding-left :2vh"><%= user.confirmed_at %></td>
-      <td style="padding-left :2vh"><%= user.name %></td>
-    </tr>
+   <%= user.name %>
+    <%= render user.campaigns %>
   <% end %>
-</table>
+  </td>
 <% else %>
   <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
   <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>

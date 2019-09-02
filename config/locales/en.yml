@@ -30,4 +30,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  hello: "Hello"
+  user:
+    name: "Name"
+  campaign:
+    name: "Title"
+    description: "Description"
+    end_time: "Fundraising end time"
+    target_amount: "Target amount"
+  
