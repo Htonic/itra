@@ -1,0 +1,24 @@
+<p>
+<%= @campaign.name %>
+</p>
+<p>
+<br/>
+<% if @campaign.images.attached? %>
+  <% @campaign.images.each do |image| %>
+    <%= image_tag(image, width: 200) %>
+  <% end %>
+<% end %>
+</p>
+<p>
+  <strong><%= t 'campaign.description'%>:</strong>
+  <%= @campaign.description %>
+</p>
+<p>
+  <strong><%= t 'campaign.end_time'%>:</strong>
+  <%= @campaign.end_time %>
+</p>
+
+<p>
+  <strong><%= t 'campaign.target_amount'%>:</strong>
+  <%= @campaign.target_amount %>
+</p>

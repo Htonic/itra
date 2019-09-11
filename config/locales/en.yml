@@ -31,6 +31,8 @@
 
 en:
   hello: "Hello"
+  language: "Language"
+  more: "More"
   user:
     name: "Name"
   campaign:
@@ -38,4 +40,8 @@ en:
     description: "Description"
     end_time: "Fundraising end time"
     target_amount: "Target amount"
-  
+  link:
+    home: "Home"
+    sign_up: "Sign up"
+    login: "Login"
+    user_list: "User list"

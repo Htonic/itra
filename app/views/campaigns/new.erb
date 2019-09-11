@@ -1,0 +1,26 @@
+<%= form_with(model: @campaign, local: true) do |f| %>
+  <p>
+    <%= f.label :Campaign_name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :Campaign_description %><br>
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :Fundraising_end_time %><br>
+    <%= f.date_field :end_time %>
+  </p>
+  <p>
+    <%= f.label :Required_amount %><br>
+    <%= f.number_field :target_amount %>
+  </p>
+  <div class="field">
+    <%= f.label :images %>
+    <%= f.file_field :images, multiple: true %>
+  </div>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+<p><%= link_to t('link.home'), welcome_index_path %></p>
