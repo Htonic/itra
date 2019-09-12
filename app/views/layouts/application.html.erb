@@ -4,11 +4,8 @@
     <title>Ourcrowd</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" %>
-    <%= javascript_include_tag "https://code.jquery.com/jquery-3.3.1.slim.min.js" %>
-    <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" %>
-    <%= javascript_include_tag "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"%>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
   </head>
   <header>
@@ -23,22 +20,21 @@
           <li class="nav-item active">
             <a class="nav-link" href=/><%=t 'link.home' %><span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= t 'language' %>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href=set_language/en>English</a>
-              <a class="dropdown-item" href=set_language/ru>Русский</a>
+                <%= link_to 'English',set_language_en_path,class: "dropdown-item"%>
+              <%= link_to 'Русский',set_language_ru_path,class: "dropdown-item"%>
             </div>
           </li>
+          <% if user_signed_in? %>
           <li class="nav-item">
             <a class="nav-link" href="/users/:user_id"> <%= t('link.my_account')%></a>
           </li>
         </ul>
+          <%end %>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>

@@ -1,26 +1,33 @@
+<center>
 <%= form_with(model: @campaign, local: true) do |f| %>
   <p>
-    <%= f.label :Campaign_name %><br>
+    <%= f.label t'campaign.name' %><br>
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :Campaign_description %><br>
+    <%= f.label t'campaign.description' %><br>
     <%= f.text_area :description %>
   </p>
   <p>
-    <%= f.label :Fundraising_end_time %><br>
+    <%= f.label t'campaign.end_time' %><br>
     <%= f.date_field :end_time %>
   </p>
   <p>
-    <%= f.label :Required_amount %><br>
+    <%= f.label t'campaign.target_amount' %><br>
     <%= f.number_field :target_amount %>
   </p>
+  <br />
   <div class="field">
-    <%= f.label :images %>
-    <%= f.file_field :images, multiple: true %>
+    <%= f.file_field :images, multiple: true, class: 'drop' , accept: 'image/png,image/gif,image/jpeg'%>
   </div>
+
   <p>
-    <%= f.submit %>
+    <%= f.submit t'campaign.add'%>
   </p>
-<% end %>
+  <%end %>
+<%= content_for(:javascript) do %>
+  <!-- include the dropzone library itself. -->
+  <%= javascript_include_tag "dropzone" %>
+  <%end %>
 <p><%= link_to t('link.home'), welcome_index_path %></p>
+</center>

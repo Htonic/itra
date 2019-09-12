@@ -42,6 +42,9 @@ en:
     target_amount: "Target amount"
   link:
     home: "Home"
+    forgot_password: "Forgot your password?"
+    not_receive_confirmation: "Didn't receive confirmation instructions?"
+    didn_t_receive_unlock: "Didn't receive unlock instructions?"
     sign_up: "Sign up"
     login: "Login"
     user_list: "User list"
