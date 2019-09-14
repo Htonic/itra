@@ -1,17 +1,15 @@
-<% if user_signed_in? %>
-<h1><%= t('hello')%>,<%= current_user.name %></h1>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <p>
-    <%= link_to t('link.accounts'), users_path%>
-  </p>
-  <div class="container">
-    <div class="row">
-  <% @users.each do |user| %>
-        <%= render user.campaigns %></p>
-  <% end %>
-    </div>
+ <div id="tag_cloud">
+    <%= t'tags.tag_cloud' %>
+    <% tag_cloud Campaign.tag_counts, %w[s m l] do |tag, css_class| %>
+      <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+    <% end %>
   </div>
-<% else %>
-  <%= link_to t('link.sign_up'), new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to t('link.login'), new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
+  <div class="container">
+  <div id="campaigns">
+    <div class="row">
+    <% @campaigns.each do |campaign| %>
+      <%= render campaign %></p>
+    <% end %>
+  </div>
+  </div>
+  </div>

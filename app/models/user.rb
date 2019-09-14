@@ -24,5 +24,4 @@ class User < ApplicationRecord
     end
   end
   has_many :campaigns
-  Gutentag::ActiveRecord.call self
 end

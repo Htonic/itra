@@ -1,8 +1,13 @@
+<% if user_signed_in? %>
+  <%if @user == current_user %>
 <%= link_to t('delete campaign'),campaign_path,method: :delete %>
+    <%end %>
+  <%end %>
 <p>
-<%= @campaign.name %>
+<h1><%= @campaign.name %></h1>
+<p>
+  <%= t('tags.tags')%>: <%= raw @campaign.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
 </p>
-<p>
 <br/>
 <% if @campaign.images.attached? %>
   <% @campaign.images.each do |image| %>
@@ -10,6 +15,12 @@
   <% end %>
 <% end %>
 </p>
+<%"http://www.youtube.com/embed/#{@video_id}"%>
+<% if not @campaign.video_link.nil? %>
+  <div class="container" >
+  <iframe height="300" width="600" src=<%=@video_url%> frameborder="0" scrolling="yes" allowfullscreen></iframe>
+  </div>
+  <% end %>
 <p>
   <strong><%= t 'campaign.description'%>:</strong>
   <%= @campaign.description %>

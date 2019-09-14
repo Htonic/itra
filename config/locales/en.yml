@@ -33,10 +33,16 @@ en:
   hello: "Hello"
   language: "Language"
   more: "More"
+  entrance: "Entrance"
+  tags:
+    tag_cloud: "Tags cloud"
+    tags_and_commas: "Tags(separated by commas)"
+    tags: "Tags"
   user:
     name: "Name"
   campaign:
     name: "Title"
+    add: "Add campaign"
     description: "Description"
     end_time: "Fundraising end time"
     target_amount: "Target amount"
