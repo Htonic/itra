@@ -23,5 +23,6 @@ class User < ApplicationRecord
       user.skip_confirmation!
     end
   end
-  has_many :campaigns
+  has_many :campaigns, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
 end

@@ -1,12 +1,12 @@
 class WelcomeController < ApplicationController
   def index
-   @users = User.includes(:campaigns)
+   @users = User.includes(:campaigns).to_a
    @campaigns = if params[:tag]
                   Campaign.tagged_with(params[:tag])
                 else
                   @campaigns = Campaign.all
                 end
   end
-   def show
+   def about
    end
 end

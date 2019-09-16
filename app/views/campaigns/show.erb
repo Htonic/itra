@@ -15,12 +15,11 @@
   <% end %>
 <% end %>
 </p>
-<%"http://www.youtube.com/embed/#{@video_id}"%>
-<% if not @campaign.video_link.nil? %>
-  <div class="container" >
-  <iframe height="300" width="600" src=<%=@video_url%> frameborder="0" scrolling="yes" allowfullscreen></iframe>
-  </div>
-  <% end %>
+<% unless @video_url.nil? %>
+<div class="container">
+      <iframe height="300" width="600" src=<%= @video_url %> frameborder="0" scrolling="yes" allowfullscreen></iframe>
+</div>
+<% end %>
 <p>
   <strong><%= t 'campaign.description'%>:</strong>
   <%= @campaign.description %>
@@ -33,4 +32,11 @@
 <p>
   <strong><%= t 'campaign.target_amount'%>:</strong>
   <%= @campaign.target_amount %>
+</p>
+<p>
+  <strong><%=t 'comment.comments' %></strong>
+  <% @campaign.comments.each do |comment| %>
+    <%= render comment %></p>
+  <% end %>
+  <%= render 'comments/form' %>
 </p>
