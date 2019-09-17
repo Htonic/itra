@@ -1,4 +1,4 @@
-<center>
+<div style="text-align: center;">
 <%= form_with(model: @campaign, local: true) do |f| %>
   <p>
     <%= f.label t'campaign.name' %><br>
@@ -8,31 +8,24 @@
     <%= f.label t'campaign.description' %><br>
     <%= f.text_area :description %>
   </p>
-    <div class="row">
-      <div class="container">
     <div class="field">
       <%= f.label :tag_list, t('tags.tags_and_commas') %><br />
       <%= f.text_field :tag_list %>
     </div>
-      </div>
-        <div class="container">
   <p>
     <%= f.label t'campaign.end_time' %><br>
     <%= f.date_field :end_time %>
   </p>
-        </div>
-      <div class="container">
   <p>
     <%= f.label t'campaign.target_amount' %><br>
     <%= f.number_field :target_amount %>
   </p>
-      </div>
-      </div>
-    </div>
   <br />
-  <div class="field">
-    <%= f.file_field :images, multiple: true%>
-  </div>
+    <div class="image-upload">
+
+      <%= f.file_field :images,multiple: true, class:"image-upload"%>
+    </div>
+
     <p>
       <%= f.label t'campaign.add_video_link' %><br>
       <%= f.text_field :video_link %>
@@ -42,4 +35,4 @@
   </p>
   <%end %>
 <p><%= link_to t('link.home'), welcome_index_path %></p>
-</center>
+</div>

@@ -25,6 +25,9 @@
   <%= @campaign.description %>
 </p>
 <p>
+<%= markdown(@campaign.description)%>
+</p>
+<p>
   <strong><%= t 'campaign.end_time'%>:</strong>
   <%= @campaign.end_time %>
 </p>
@@ -38,5 +41,7 @@
   <% @campaign.comments.each do |comment| %>
     <%= render comment %></p>
   <% end %>
+  <% if user_signed_in? %>
   <%= render 'comments/form' %>
+    <%end %>
 </p>

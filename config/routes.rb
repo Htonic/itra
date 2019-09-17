@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
   resources :users
   resources :campaigns
+  get "search", to: "search#search"
   get 'welcome/index'
   get 'welcome/about'
   get 'set_language/en'

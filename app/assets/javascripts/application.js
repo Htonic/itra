@@ -18,5 +18,6 @@
 //= require turbolinks
 //= require popper
 //= require dropzone
+//= require markitup
 //= require_tree .
 

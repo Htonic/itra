@@ -10,16 +10,15 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- @import require_tree .
+
  @import require_self
  @import "bootstrap-sprockets"
-@import "bootstrap"
-@import “simpletextrotator”;
-@import “magnific-popup”;
-@import “flexslider”;
-@import “animate”;
-@import “style”;
-@import “custom”;
+@import bootstrap
+@import 'simpletextrotator'
+@import 'magnific-popup'
 @import dropzone/basic
 @import dropzone/dropzone
+@import 'markitup'
+@import 'markitup-markdown'
+@import require_tree .
  */

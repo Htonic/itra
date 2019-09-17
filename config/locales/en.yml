@@ -50,6 +50,8 @@ en:
     description: "Description"
     end_time: "Fundraising end time"
     target_amount: "Target amount"
+    search_results: "Search results"
+    search_no_results: "Your search did not match any campaigns"
     add_video_link: "Insert youtube video link, if you want add video"
   link:
     home: "Home"

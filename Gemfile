@@ -29,6 +29,12 @@ gem 'activestorage-cloudinary-service'
 gem 'cloudinary'
 #for uploding videos from youtube
 gem 'youtube_it'
+#for full-text search
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+#for markdown
+gem "redcarpet"
+gem 'markitup-rails'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -48,7 +54,6 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap'
-gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'autoprefixer-rails'
 group :development, :test do

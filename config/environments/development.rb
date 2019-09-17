@@ -8,7 +8,8 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
-
+  config.sass.preferred_syntax = :sass
+  config.sass.syntax = :sass
   # Show full error reports.
   config.consider_all_requests_local = true
 config.action_mailer.perform_deliveries = true
