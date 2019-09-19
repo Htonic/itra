@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_14_134100) do
+ActiveRecord::Schema.define(version: 2019_09_19_121831) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -37,11 +37,12 @@ ActiveRecord::Schema.define(version: 2019_09_14_134100) do
     t.string "name"
     t.text "description"
     t.datetime "end_time"
-    t.bigint "target_amount"
+    t.float "target_amount"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "video_link"
+    t.float "current_fund", default: 0.0
     t.index ["user_id"], name: "index_campaigns_on_user_id"
   end
 
@@ -62,6 +63,15 @@ ActiveRecord::Schema.define(version: 2019_09_14_134100) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_identities_on_user_id"
+  end
+
+  create_table "news", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "campaign_id", null: false
+    t.string "title"
+    t.text "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["campaign_id"], name: "index_news_on_campaign_id"
   end
 
   create_table "taggings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -106,6 +116,7 @@ ActiveRecord::Schema.define(version: 2019_09_14_134100) do
   add_foreign_key "comments", "campaigns"
   add_foreign_key "comments", "users"
   add_foreign_key "identities", "users"
+  add_foreign_key "news", "campaigns"
   add_foreign_key "taggings", "campaigns"
   add_foreign_key "taggings", "tags"
 end

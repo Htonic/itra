@@ -1,0 +1,15 @@
+<%= form_with(model: @campaign, local: true) do |f| %>
+
+  <div><%= f.label t('campaign.name') %><br />
+    <%= f.text_field :name, autofocus: true %></div>
+
+  <div class="field">
+    <%= f.label t('campaign.description')%><br />
+    <%=f.text_area markdown_preview_path(@text)%>
+  </div>
+  <div><%= f.label t('campaign.current_fund') %><br />
+    <%= f.text_field :current_fund, autofocus: true %></div>
+    <%= f.submit "Edit" %>
+<% end %>
+
+<%= link_to "Back", :back %>

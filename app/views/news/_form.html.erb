@@ -1,0 +1,19 @@
+<%= form_with(model: [@campaign, @campaign.news.build]) do |form| %>
+  <div class="field">
+    <p>
+    <%= form.text_field :title %>
+      </p>
+  </div>
+  <div class="field">
+    <p>
+      <textarea class='markItUp' :body></textarea>
+      <%= form.text_area :body %>
+    </p>
+  </div>
+  <% t('news.add_image') %>
+  <div class="image-upload">
+
+    <%= form.file_field :image,class:"image-upload"%>
+  </div>
+    <%= form.submit t('comment.add_news') %>
+<% end %>

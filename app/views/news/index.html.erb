@@ -1,0 +1,9 @@
+
+    <% @news.each do |news| %>
+      <p>
+        <h1><%= news.title %></h1>
+        <p>
+        <%= news.body %>
+        </p>
+      </p>
+    <%end %>

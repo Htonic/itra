@@ -11,14 +11,14 @@
  * It is generally better to create a new file per style scope.
  *
 
- @import require_self
- @import "bootstrap-sprockets"
-@import bootstrap
+ @import 'require_self'
 @import 'simpletextrotator'
 @import 'magnific-popup'
-@import dropzone/basic
-@import dropzone/dropzone
+@import 'dropzone/basic'
+@import 'dropzone/dropzone'
 @import 'markitup'
 @import 'markitup-markdown'
+@import 'bootstrap-sprockets'
+@import 'bootstrap';
 @import require_tree .
  */

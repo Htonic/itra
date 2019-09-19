@@ -4,8 +4,9 @@
     <title>Ourcrowd</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </head>
   <header>
@@ -50,9 +51,6 @@
             </li>
           <%end %>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <%= render 'search/form' %>
-        </form>
       </div>
     </nav>
   </header>

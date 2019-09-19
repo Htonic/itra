@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     end
   end
   resources :users
-  resources :campaigns
+  resources :campaigns do
+    resources :news
+  end
   get "search", to: "search#search"
   get 'welcome/index'
   get 'welcome/about'
@@ -16,6 +18,7 @@ Rails.application.routes.draw do
   get 'set_language/ru'
   get 'tags/:tag', to: 'welcome#index', as: :tag
   post 'user/campaign/new'
+  post "markdown/preview"
   root 'welcome#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
