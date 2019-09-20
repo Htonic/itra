@@ -8,7 +8,11 @@ class UsersController < ApplicationController
   # # GET /users/1
   # # GET /users/1.json
   def show
+    if current_user.try(:admin?)
+      @user = User.find(params[:id])
+    else
     @user = current_user
+      end
   end
 
   # GET /users/1/edit
@@ -34,7 +38,54 @@ class UsersController < ApplicationController
       end
     end
   end
+  def block
+    @users = User.where(id: params[:users])
+    @users.update_all(is_active: 0)
+  end
 
+  def give_admin_rights
+    @users = User.where(id: params[:users])
+    @users.update_all(admin: true)
+  end
+
+  def revoke_admin_rights
+    @users = User.where(id: params[:users])
+    @users.update_all(admin: false)
+  end
+
+  def unblock
+    @users = User.where(id: params[:users])
+    @users.update_all(is_active: 1)
+  end
+  def what_to_do
+    if current_user.try(:admin?)
+      if params[:commit] ==t('admin.delete')
+      destroy_multiple
+    elsif params[:commit] ==t('admin.block')
+      block
+    elsif params[:commit] ==t('admin.unblock')
+      unblock
+    elsif params[:commit] ==t('admin.give_rights')
+      give_admin_rights
+    elsif params[:commit] ==t('admin.revoke_rights')
+      revoke_admin_rights
+    end
+    end
+    redirect_back(fallback_location: root_path)
+  end
+  def destroy_multiple
+    begin
+      @user = User.where(id: params[:users]).destroy_all
+      @user.destroy
+      respond_to do |format|
+        format.html { redirect_to welcome_index_path }
+        format.json { head :no_content }
+      end
+    rescue # optionally: `rescue Exception => ex`
+      puts 'I am rescued.'
+    end
+    redirect_back(fallback_location: root_path)
+  end
   def sign_out
     session.destroy
   end

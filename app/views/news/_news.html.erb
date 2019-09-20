@@ -1,4 +1,9 @@
-<%=news.title %>
+<h4><%=news.title %></h4>
 <p>
   <%=news.body %>
 </p>
+
+<% if news.image.attached? %>
+  <br>
+  <%= image_tag news.image%>
+<%end %>

@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => 
    {omniauth_callbacks: 'omniauth_callbacks'  }
   resources :users do
+    collection do
+      delete 'destroy_multiple'
+      get 'what_to_do'
+    end
     resources :campaigns do
       resource :comments
     end
@@ -12,6 +16,7 @@ Rails.application.routes.draw do
     resources :news
   end
   get "search", to: "search#search"
+  mount Markitup::Rails::Engine, at: "markitup", as: "markitup"
   get 'welcome/index'
   get 'welcome/about'
   get 'set_language/en'

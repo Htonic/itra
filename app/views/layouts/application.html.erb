@@ -49,12 +49,17 @@
             <li class="nav-item">
             <%= link_to t('link.logout'),  destroy_user_session_path , class: "nav-link"%>
             </li>
+            <%if current_user.admin?%>
+              <li class="nav-item">
+              <%=link_to t('admin.user_list'), users_path , class: "nav-link"%>
+              </li>
+            <%end %>
           <%end %>
         </ul>
       </div>
     </nav>
   </header>
-  <body>
+  <body >
   <%= render 'search/form' %>
   <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>

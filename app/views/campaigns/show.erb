@@ -1,33 +1,30 @@
 <div style="text-align: center;">
-<% if user_signed_in? %>
-  <%if @campaign.user_id == current_user.id %>
-<%= link_to t('campaign.delete'),campaign_path,method: :delete %>
-    <%= link_to t('campaign.edit'), edit_campaign_path %>
-    <p>
-      <%t'news.add_news' %>
-      <%= render 'news/form'%>
-    </p>
-    <%end %>
-  <%end %>
+  <div class="jumbotron text-center" style="color: white;background-color: orangered">
 <p>
-  <div class="left">
-  <% @campaign.news.each do |news| %>
-    <%= render news %></p>
-  <% end %>
-    </div>
-<h1><%= @campaign.name %></h1>
+<h1><%= @campaign.name%></h1>
 </p>
 <p>
-  <%= t('tags.tags')%>: <%=raw  @campaign.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
+ <h3> <%= t('tags.tags')%>: <%=raw  @campaign.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></h3>
 </p>
-<% t'campaign.progress' %>
+  </div>
+  <h1 style="color: #cc0000;text-align: left">
+    <%= t'campaign.progress' %></h1>
 <div class="progress">
   <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="70"
        aria-valuemin="0" aria-valuemax="100" style="width:<%=progress%>">
     <%=progress%>
   </div>
 </div>
-
+  <% if user_signed_in? %>
+    <%if @campaign.user_id == current_user.id or current_user.admin?%>
+      <%= link_to t('campaign.delete'),campaign_path,method: :delete %>
+      <%= link_to t('campaign.edit'), edit_campaign_path %>
+      <p>
+        <%t'news.add_news' %>
+        <%= render 'news/form'%>
+      </p>
+    <%end %>
+  <%end %>
 <br/>
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -52,12 +49,23 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+<div class="container" >
+  <div class="row">
+<div class="col-sm-4">
+  <%= t('news.news')%>:
+  <div class="overflow-auto">
+  <% @campaign.news.each do |news| %>
+    <%= render news %></p>
+  <% end %>
+  </div>
+</div>
+<div class="col-sm-8" >
 <% unless @video_url.nil? %>
 <div class="container">
       <iframe height="300" width="600" src=<%= @video_url %> frameborder="0" scrolling="yes" allowfullscreen></iframe>
 </div>
 <% end %>
-</div>
+  <h3 style="color: darkmagenta;text-align: left">
 <p>
   <strong><%= t 'campaign.description'%>:</strong>
   <%= markdown(@campaign.description) %>
@@ -71,9 +79,12 @@
   <strong><%= t 'campaign.target_amount'%>:</strong>
   <%= @campaign.target_amount %>
 </p>
-
-  <div class="progress-bar" role="progressbar" aria-rowindex="<%progress%>"></div>
+  </h3>
+</div>
+</div>
+</div>
 <p>
+  <h5 style="text-align: left">
   <strong><%=t 'comment.comments' %></strong>
   <% @campaign.comments.each do |comment| %>
     <%= render comment %></p>
@@ -82,3 +93,6 @@
   <%= render 'comments/form' %>
     <%end %>
 </p>
+    </h1>
+</div>
+

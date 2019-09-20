@@ -34,7 +34,7 @@ config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.raise_delivery_errors = true
  config.action_mailer.smtp_settings = {
     user_name:      'htonichen@gmail.com',
-    password:       '26082012pasha',
+    password:       '25.10.1917Lenin',
     domain:        'gmail.com',
     address:       'smtp.gmail.com',
     port:          '587',

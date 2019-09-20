@@ -5,5 +5,8 @@
         <p>
         <%= news.body %>
         </p>
+      <% if news.image.attached? %>
+        <%= image_tag(news.image, width: 640, height: 480)%>
+      <%end %>
       </p>
     <%end %>

@@ -19,5 +19,6 @@
 //= require bootstrap
 //= require dropzone
 //= require markitup
+//= require markitup/sets/xbbcode/set
 //= require_tree .
 

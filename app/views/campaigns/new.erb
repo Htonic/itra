@@ -4,6 +4,7 @@
     <%= f.label t'campaign.name' %><br>
     <%= f.text_field :name %>
   </p>
+    <%= f.hidden_field :user_id, :value => @user.id %>
   <p>
     <%= f.label t'campaign.description' %><br>
     <%= f.text_area :description %>

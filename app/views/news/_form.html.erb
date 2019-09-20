@@ -4,16 +4,16 @@
     <%= form.text_field :title %>
       </p>
   </div>
+  <% markitup  %>
   <div class="field">
     <p>
-      <textarea class='markItUp' :body></textarea>
-      <%= form.text_area :body %>
+      <%= form.text_area :body  %>
     </p>
   </div>
   <% t('news.add_image') %>
-  <div class="image-upload">
+  <div class="field">
 
-    <%= form.file_field :image,class:"image-upload"%>
+    <%= form.file_field :image%>
   </div>
-    <%= form.submit t('comment.add_news') %>
+    <%= form.submit t('news.add_news') %>
 <% end %>

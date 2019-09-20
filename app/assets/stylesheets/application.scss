@@ -18,6 +18,8 @@
 @import 'dropzone/dropzone'
 @import 'markitup'
 @import 'markitup-markdown'
+@import "markitup/skins/markitup/style";
+@import "markitup/sets/xbbcode/style";
 @import 'bootstrap-sprockets'
 @import 'bootstrap';
 @import require_tree .

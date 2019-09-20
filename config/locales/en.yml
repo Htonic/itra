@@ -34,6 +34,8 @@ en:
   language: "Language"
   more: "More"
   entrance: "Entrance"
+  back: "Back"
+  use_power_wisely: "Use power wisely"
   comment:
     comment: "comment"
     add_comment: "Add comment"
@@ -46,13 +48,18 @@ en:
     name: "Name"
   campaign:
     name: "Title"
+    progress: "Progress"
     add: "Add campaign"
+    add_changes: "Make changes"
+    edit: "Edit campaign"
+    delete: "Delete campaign"
     description: "Description"
     end_time: "Fundraising end time"
     target_amount: "Target amount"
     search_results: "Search results"
     search_no_results: "Your search did not match any campaigns"
     add_video_link: "Insert youtube video link, if you want add video"
+    my_campaigns: "My campaigns"
   link:
     home: "Home"
     forgot_password: "Forgot your password?"
@@ -61,3 +68,14 @@ en:
     sign_up: "Sign up"
     login: "Login"
     user_list: "User list"
+  news:
+    add_news: "Add news"
+    news: "News"
+  admin:
+    delete: "Delete"
+    give_rights: "Give rights"
+    revoke_rights: "Revoke rights"
+    block: "Block"
+    unblock: "Unblock"
+    check_all: "Check all"
+    user_list: "Users list"
