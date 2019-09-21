@@ -12,7 +12,6 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require jquery3
 //= require jquery_ujs
 //= require popper
@@ -20,5 +19,10 @@
 //= require dropzone
 //= require markitup
 //= require markitup/sets/xbbcode/set
+//= require jquery.raty
+//= require ratyrate
+//= require turbolinks
+//= require_self
 //= require_tree .
+
 

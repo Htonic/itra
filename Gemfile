@@ -35,6 +35,11 @@ gem 'elasticsearch-rails'
 #for markdown
 gem "redcarpet"
 gem 'markitup-rails'
+#Add rating in our app
+gem 'ratyrate'
+#easy and beautiful pagination
+gem 'will_paginate'
+gem 'will_paginate-bootstrap4'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -46,7 +51,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'image_processing'
+gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -54,6 +60,7 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap'
+gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'autoprefixer-rails'
 group :development, :test do

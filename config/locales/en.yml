@@ -36,6 +36,8 @@ en:
   entrance: "Entrance"
   back: "Back"
   use_power_wisely: "Use power wisely"
+  about: "This app created to help people around the world.
+    Let's be friends!"
   comment:
     comment: "comment"
     add_comment: "Add comment"
@@ -60,6 +62,9 @@ en:
     search_no_results: "Your search did not match any campaigns"
     add_video_link: "Insert youtube video link, if you want add video"
     my_campaigns: "My campaigns"
+    ideological: "Ideological"
+    helpfulness: "Helpfulness"
+    fun: "Fun"
   link:
     home: "Home"
     forgot_password: "Forgot your password?"

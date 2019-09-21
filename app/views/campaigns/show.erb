@@ -3,6 +3,7 @@
 <p>
 <h1><%= @campaign.name%></h1>
 </p>
+
 <p>
  <h3> <%= t('tags.tags')%>: <%=raw  @campaign.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></h3>
 </p>
@@ -10,11 +11,19 @@
   <h1 style="color: #cc0000;text-align: left">
     <%= t'campaign.progress' %></h1>
 <div class="progress">
-  <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="70"
+  <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="70"
        aria-valuemin="0" aria-valuemax="100" style="width:<%=progress%>">
     <%=progress%>
   </div>
 </div>
+  <div class="container">
+  <div class="row" style="margin-left: 5%;" >
+      <% if current_user %>
+      <h4 style="color: #cc0000"> <%=t('campaign.ideological') %>:</h4>   <%= rating_for @campaign, "ideological" ,disable_after_rate: true, imdb_avg: true %>
+      <h4 style="color: #cc0000"> <%=t('campaign.helpfulness') %>:</h4>  <%= rating_for @campaign, "helpfulness", disable_after_rate: true, imdb_avg: true  %>
+        <h4 style="color: #cc0000"> <%=t('campaign.fun') %>:</h4>  <%= rating_for @campaign, "fun", disable_after_rate: true, imdb_avg: true %>
+      <% end %>
+  </div>
   <% if user_signed_in? %>
     <%if @campaign.user_id == current_user.id or current_user.admin?%>
       <%= link_to t('campaign.delete'),campaign_path,method: :delete %>
@@ -31,7 +40,7 @@
   <div class="carousel-inner">
     <% if @campaign.images.attached? %>
       <div class="carousel-item active">
-        <%= image_tag(@campaign.images[0]) %>
+        <%= image_tag(@campaign.images[0], width: 640, height: 480) %>
       </div>
       <% @campaign.images.drop(1).each do |image| %>
     <div class="carousel-item">
@@ -94,5 +103,6 @@
     <%end %>
 </p>
     </h1>
+    </div>
 </div>
-
+<%= javascript_include_tag 'ratyrate.js', "data-turbolinks-track": false %>

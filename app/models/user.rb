@@ -2,13 +2,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :omniauthable,
 :omniauth_providers => [:facebook]
-  def self.new_with_session(params, session)
-    super.tap do |user|
-      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
-        user.email = data["email"] if user.email.blank?
-      end
-    end
-  end
+
+  has_many :campaigns, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
+  has_many :bonus
+
+  ratyrate_rater
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -23,6 +22,12 @@ class User < ApplicationRecord
       user.skip_confirmation!
     end
   end
-  has_many :campaigns, :dependent => :destroy
-  has_many :comments, :dependent => :destroy
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
+    end
+  end
 end

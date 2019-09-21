@@ -1,8 +1,9 @@
 <h4><%=news.title %></h4>
+<% if news.body %>
 <p>
-  <%=news.body %>
+  <%= markdown(news.body) %>
 </p>
-
+<% end %>
 <% if news.image.attached? %>
   <br>
   <%= image_tag news.image%>
