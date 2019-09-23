@@ -1,15 +1,16 @@
-<%= form_with(model: @campaign, local: true) do |f| %>
-
-  <div><%= f.label t('campaign.name') %><br />
-    <%= f.text_field :name, autofocus: true %></div>
+<%= form_with(model: @news, local: true) do |f| %>
 
   <div class="field">
-    <%= f.label t('campaign.description')%><br />
-    <%=f.text_area markdown_preview_path(@text)%>
+    <p>
+      <%= form.text_field :title %>
+    </p>
   </div>
-  <div><%= f.label t('campaign.current_fund') %><br />
-    <%= f.text_field :current_fund, autofocus: true %></div>
-    <%= f.submit "Edit" %>
+  <% markitup  %>
+  <div class="field">
+    <p>
+      <%= form.text_area :body  %>
+    </p>
+  </div>
 <% end %>
 
-<%= link_to "Back", :back %>
+<%= link_to t('back'), :back %>

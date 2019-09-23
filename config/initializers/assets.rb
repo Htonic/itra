@@ -15,3 +15,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 Rails.application.config.assets.precompile += %w(dropzone.js basic.css dropzone.css)
 Rails.application.config.assets.precompile += %w( ratyrate.js )
+Rails.application.config.assets.precompile += %w( campaigns.coffee )

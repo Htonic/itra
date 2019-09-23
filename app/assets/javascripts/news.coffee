@@ -32,7 +32,7 @@ jQuery ->
         closeWith:']([![Url:!:http://]!] "[![Title]!]")',
         placeHolder:'Your text to link here...'
       },
-      {separator:'---------------'}
+      {separator:'---------------'},
       {name:'Quotes', openWith:'> '}
       {name:'Code Block / Code', openWith:'(!(\t|!|`)!)', closeWith:'(!(`)!)'}
       {separator:'---------------'}

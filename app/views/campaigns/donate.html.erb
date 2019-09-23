@@ -1,0 +1,19 @@
+<%= form_with(method: "transfer_donation") do |f| %>
+  <div class="file_field">
+    <%= f.label t('campaign.donate.card_number')%><br />
+    <%=f.number_field :card_number%>
+  </div>
+  <div class="file_field">
+    <%= f.label t('campaign.donate.card_validity')%><br />
+    <%=f.number_field :validity%>
+  </div>
+  <div class="file_field">
+    <%= f.label t('campaign.donate.CVV_number')%><br />
+    <%=f.number_field :cvv_number%>
+  </div>
+  <div class="file_field">
+    <%= f.label t('campaign.donate.amount')%><br />
+    <%=f.number_field :donation%>
+  </div>
+<%= f.submit t('campaign.donate.donate')%>
+<% end %>

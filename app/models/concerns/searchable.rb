@@ -18,18 +18,6 @@ module Searchable
   end
   module Indexing
 
-    #Index only the specified fields
-  #  self.settings do
-    #  mappings dynamic: false do
-    #    indexes :news, type: :object do
-    #      indexes :title
-     #     indexes :body
-     #   end
-     #   indexes :comments, type: :object do
-    #      indexes :opinion
-    #    end
-   #   end
- #   end
     def as_indexed_json(options={})
       self.as_json(
           include: { news: { only: [:title,:body]},

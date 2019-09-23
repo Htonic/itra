@@ -23,8 +23,7 @@ class NewsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @news = News.create(body: news_params[:body],title: news_params[:title],campaign_id:params[:campaign_id])
-    puts params[:campaign_id], "||||||", news_params
+    @news = News.create(news_params)
     redirect_back(fallback_location: root_path)
   end
 
@@ -60,7 +59,7 @@ class NewsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def news_params
-    params.require(:news).permit(:id,:title, :body, :campaign_id, :image)
+    params.require(:news).permit(:id,:title, :body, :campaign_id)
   end
 end
 

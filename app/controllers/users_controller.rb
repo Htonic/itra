@@ -8,16 +8,12 @@ class UsersController < ApplicationController
   # # GET /users/1
   # # GET /users/1.json
   def show
-    if current_user.try(:admin?)
-      @user = User.find(params[:id])
-    else
-    @user = current_user
-      end
+    get_user
   end
 
   # GET /users/1/edit
   def edit
-    @user = current_user
+    get_user
   end
   def create
     @user = User.new(user_params) #(params[:user])
@@ -110,7 +106,13 @@ class UsersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-
+    def get_user
+      if current_user.try(:admin?)
+        @user = User.find(params[:id])
+      else
+        @user = current_user
+      end
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:id, :name, :email, :password)

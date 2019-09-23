@@ -33,25 +33,37 @@ en:
   hello: "Hello"
   language: "Language"
   more: "More"
+  menu: "Menu"
   entrance: "Entrance"
   back: "Back"
+  yes: "Yes"
+  no: "No"
   use_power_wisely: "Use power wisely"
   about: "This app created to help people around the world.
     Let's be friends!"
   comment:
     comment: "comment"
     add_comment: "Add comment"
-    comments: "comments"
+    comments: "Comments"
+    like:
+      like: "Like"
+      unlike: "Unlike"
+      likes: "Likes"
+      alredy_liked: "You are already liked this comment"
+      cannot_remove: "I cannot remove your like, because you aren't liked this comment"
   tags:
     tag_cloud: "Tags cloud"
     tags_and_commas: "Tags(separated by commas)"
     tags: "Tags"
   user:
     name: "Name"
+    user_rewards: "Your rewards"
+    is_active: "Is active"
   campaign:
     name: "Title"
     progress: "Progress"
     add: "Add campaign"
+    current_fund: "Current fund"
     add_changes: "Make changes"
     edit: "Edit campaign"
     delete: "Delete campaign"
@@ -65,6 +77,19 @@ en:
     ideological: "Ideological"
     helpfulness: "Helpfulness"
     fun: "Fun"
+    donate:
+      card_number: "Card number"
+      CVV_number: "CVV Number"
+      amount: "Amount"
+      donate: "Donate"
+      card_validity: "Card validity"
+      donate_money: "Gratuitous donation"
+  bonus:
+    bonuses: "Bonuses"
+    add_bonus: "Add bonus"
+    title: "Bonus name"
+    description: "Bonus description"
+    cost: "Bonus cost"
   link:
     home: "Home"
     forgot_password: "Forgot your password?"

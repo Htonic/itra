@@ -5,8 +5,9 @@ class User < ApplicationRecord
 
   has_many :campaigns, :dependent => :destroy
   has_many :comments, :dependent => :destroy
-  has_many :bonus
-
+  has_many :likes, :dependent => :destroy
+  has_many :rewardings
+  has_many :rewards, through: :rewardings
   ratyrate_rater
 
   def self.from_omniauth(auth)
@@ -29,5 +30,12 @@ class User < ApplicationRecord
         user.email = data["email"] if user.email.blank?
       end
     end
+  end
+
+  def active_for_authentication?
+    super and self.is_active?
+  end
+  def inactive_message
+    self.is_active? ? super : :account_inactive
   end
 end

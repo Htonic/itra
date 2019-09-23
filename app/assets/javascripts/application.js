@@ -18,7 +18,7 @@
 //= require bootstrap
 //= require dropzone
 //= require markitup
-//= require markitup/sets/xbbcode/set
+//= require markitup/sets/markdown/set
 //= require jquery.raty
 //= require ratyrate
 //= require turbolinks

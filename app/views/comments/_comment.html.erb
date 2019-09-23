@@ -1,3 +1,12 @@
-<p>
-  <%= User.find(comment.user_id).name %>:<%= comment.opinion %>
-</p>
+<div class="container-fluid" style="alignment: left">
+  <%= User.find(comment.user_id).name %>:&nbsp;<%= comment.opinion %>
+  <div class="row">
+ <%= t('comment.like.likes')%> :   <%= comment.likes.count %>&nbsp;&nbsp;
+  <% pre_like = comment.likes.find { |like| like.user_id == current_user.id} %>
+<% if pre_like %>
+  <%= button_to t('comment.like.unlike'),comment_like_path(comment, pre_like), method: :delete, class: 'btn btn-danger' %>
+<% else %>
+  <%= button_to t('comment.like.like'), comment_likes_path(comment), method: :post  , class: "btn btn-success"%>
+<% end %>
+</div>
+</div>

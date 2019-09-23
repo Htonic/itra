@@ -1,0 +1,6 @@
+<%=reward.name%>
+<%=reward.description%>
+<%=reward.cost%>$
+<% if current_user %>
+<%= button_to t('campaign.donate.donate'), {controller:'rewards', action: "donate", id: reward.id }, class:'btn btn-primary'%>
+<% end %>
