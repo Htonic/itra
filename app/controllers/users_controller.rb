@@ -80,15 +80,14 @@ class UsersController < ApplicationController
     rescue # optionally: `rescue Exception => ex`
       puts 'I am rescued.'
     end
-    redirect_back(fallback_location: root_path)
   end
   def sign_out
     session.destroy
   end
-  def delete
+  def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to welcome_index_path
+    redirect_back(fallback_location: root_path)
   end
   # # PATCH/PUT /users/1
   # # PATCH/PUT /users/1.json
@@ -108,7 +107,7 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def get_user
       if current_user.try(:admin?)
-        @user = User.find(params[:id])
+        @user = User.includes(:rewards,:campaigns).find(params[:id])
       else
         @user = current_user
       end

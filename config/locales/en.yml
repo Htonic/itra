@@ -36,8 +36,9 @@ en:
   menu: "Menu"
   entrance: "Entrance"
   back: "Back"
-  yes: "Yes"
-  no: "No"
+  yep: "Yes"
+  nope: "No"
+  search: "Search"
   use_power_wisely: "Use power wisely"
   about: "This app created to help people around the world.
     Let's be friends!"

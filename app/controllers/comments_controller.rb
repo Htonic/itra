@@ -4,13 +4,13 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
-    @comments = Comment.all.to_a
+    @comments = Comment.includes(:likes).all.to_a
   end
 
   # GET /comments/1
   # GET /comments/1.json
   def show
-    @comment = Comment.find(params[:id])
+    @comment = Comment.includes(:user).find(params[:id])
   end
   # GET /comments/new
   def new

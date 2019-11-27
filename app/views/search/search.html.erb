@@ -2,12 +2,10 @@
 
 <% if @campaigns %>
   <ul class="search_results">
-
     <% @campaigns.each do |campaign| %>
       <li>
         <h3>
-          <%= link_to campaign.try(:name) ?
-                          campaign.name.html_safe : campaign.name,
+          <%= link_to campaign.name,
                       controller: "campaigns", action: "show", id: campaign._id %>
         </h3>
         <% if campaign.try(:description) %>
@@ -17,5 +15,5 @@
     <% end %>
   </ul>
 <% else %>
-  <p><% t'campaign.search_no_results' %></p>
+  <p><%= t'campaign.search_no_results' %></p>
 <% end %>

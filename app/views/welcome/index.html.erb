@@ -1,6 +1,7 @@
-<div class = "container">
-  <h2 class = "center"><%= t'tags.tags' %>:</h2>
+<div class="container-fluid">
   <div class="row">
+  <div class="col-sm-2">
+  <h2 class = "center"><%= t'tags.tags' %>:</h2>
             <div id="tag_cloud">
   <% tag_cloud Campaign.tag_counts, %w[s m l] do |tag, css_class| %>
                  <span class="badge badge-pill badge-primary">
@@ -10,11 +11,8 @@
 
   <% end %>
               </div>
-            </div>
-          </div>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg">
+  </div>
+    <div class="col-lg-8">
       <%= will_paginate @welcome, renderer: WillPaginate::ActionView::BootstrapLinkRenderer%>
       <div id="campaigns">
         <div class="row">

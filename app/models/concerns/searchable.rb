@@ -21,7 +21,8 @@ module Searchable
     def as_indexed_json(options={})
       self.as_json(
           include: { news: { only: [:title,:body]},
-                     comments:   { only: :opinion }
+                     comments:   { only: :opinion },
+                     tags: {only: :name}
           })
     end
     def self.search(query)
